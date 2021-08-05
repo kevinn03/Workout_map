@@ -19,6 +19,20 @@ if (navigator.geolocation) {
       console.log(
         `https://www.google.ca/maps/place/Jane+and+Finch,+Toronto,+ON/@${latitude},${longitude}`
       );
+
+      const map = L.map("map").setView([latitude, longitude], 13);
+
+      L.tileLayer("https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      L.marker([latitude, longitude])
+        .addTo(map)
+        .bindPopup("A pretty CSS3 popup.<br> Easily customizable.")
+        .openPopup();
+
+      map.on();
     },
     function () {
       alert("Could not get your position");
