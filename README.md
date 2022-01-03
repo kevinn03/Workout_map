@@ -1,2 +1,2 @@
 # Workout_map
-records areas where you worked out
+Logs outdoor workout sessions on a map
